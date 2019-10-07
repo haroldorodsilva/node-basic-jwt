@@ -1,0 +1,17 @@
+{
+  "name": "Authentication",
+  "version": "1.0.0",
+  "description": "JWT Basic Authentication",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
+}
