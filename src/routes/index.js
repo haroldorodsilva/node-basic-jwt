@@ -1,8 +1,8 @@
 const express = require('express');
-const routes = express.Router();
+const routes = express.Router(); //{ mergeParams: true }
 
-routes.get('/', (req, res) => {
-    res.json({ msg: "ok" });
-})
+routes.use('/products', require('./products'));
+routes.use('/orders', require('./orders'));
+routes.use('/user', require('./user'));
 
 module.exports = routes;
