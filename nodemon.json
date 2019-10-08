@@ -1,0 +1,6 @@
+{
+    "env": {
+        "PORT": 3333,
+        "JWT_SECRET_KEY": "secret_token_jwt"
+    }
+}
