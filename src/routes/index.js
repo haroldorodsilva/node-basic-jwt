@@ -1,8 +1,13 @@
-const express = require('express');
-const routes = express.Router(); //{ mergeParams: true }
+const apiRoute = require('./apis');
 
-routes.use('/products', require('./products'));
-routes.use('/orders', require('./orders'));
-routes.use('/user', require('./user'));
+const init = (server) => {
+    server.get('*', function (req, res, next) {
+        console.log('Request was made to: ' + req.originalUrl);
+        return next();
+    });
 
-module.exports = routes;
+    server.use('/api', apiRoute);
+}
+module.exports = {
+    init: init
+};

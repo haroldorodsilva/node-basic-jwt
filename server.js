@@ -1,24 +1,9 @@
-const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const morgan = require('morgan');
+const server = require('./src/config/app')();
+const config = require('./src/config/env_config/config');
+const db = require('./src/config/db');
 
-const Router = require('./src/routes')
+//create the basic server setup 
+server.create(config, db);
 
-const app = express();
-app.use(morgan('dev'));
-app.use(helmet());
-app.use(cors());
-app.use(express.json());
-app.use(Router);
-
-app.use((error, req, res, next) => {
-    res.status(error.status || 500).json({
-        error: {
-            message: error.message
-        }
-    });
-});
-
-const PORT = process.env.PORT;
-app.listen(PORT, () => console.log("Server started ", PORT));
+//start the server
+server.start();
